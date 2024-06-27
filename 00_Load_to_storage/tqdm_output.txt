@@ -1,0 +1,31 @@
+GCS upload progress:   0%|          | 0/10 [00:00<?, ?it/s]Bucket analytics_journey_customers created.
+GCS upload progress:  10%|█         | 1/10 [00:15<02:22, 15.84s/it]Parquet files customers created!
+--------------------------
+Bucket analytics_journey_deals_profiles created.
+GCS upload progress:  20%|██        | 2/10 [00:18<01:05,  8.23s/it]Parquet files deals_profiles created!
+--------------------------
+Bucket analytics_journey_geolocation created.
+GCS upload progress:  30%|███       | 3/10 [00:51<02:16, 19.45s/it]Parquet files geolocation created!
+--------------------------
+Bucket analytics_journey_orders created.
+GCS upload progress:  40%|████      | 4/10 [03:36<07:41, 76.94s/it]Parquet files orders created!
+--------------------------
+Bucket analytics_journey_order_items created.
+GCS upload progress:  50%|█████     | 5/10 [06:00<08:25, 101.02s/it]Parquet files order_items created!
+--------------------------
+Bucket analytics_journey_order_payments created.
+GCS upload progress:  60%|██████    | 6/10 [06:09<04:39, 69.88s/it] Parquet files order_payments created!
+--------------------------
+Bucket analytics_journey_order_reviews created.
+GCS upload progress:  70%|███████   | 7/10 [08:28<04:36, 92.26s/it]Parquet files order_reviews created!
+--------------------------
+Bucket analytics_journey_products created.
+GCS upload progress:  80%|████████  | 8/10 [08:33<02:09, 64.76s/it]Parquet files products created!
+--------------------------
+Bucket analytics_journey_product_category_name_translation created.
+GCS upload progress:  90%|█████████ | 9/10 [08:36<00:45, 45.38s/it]Parquet files product_category_name_translation created!
+--------------------------
+Bucket analytics_journey_sellers created.
+GCS upload progress: 100%|██████████| 10/10 [08:39<00:00, 51.99s/it]Parquet files sellers created!
+--------------------------
+
