@@ -12,6 +12,7 @@ ipykernel = "^6.29.5"
 python-dotenv = "^1.0.1"
 google-cloud-storage = "^2.17.0"
 dlt = {extras = ["bigquery"], version = "^0.5.1"}
+google-cloud-bigquery-storage = "^2.25.0"
 
 
 [build-system]
