@@ -32,27 +32,35 @@ def create_bucket(bucket_name: str,
 def upload_files(bucket_name: str,
                  partition_col: str = None) -> str:
     
-    gcs = fs.GcsFileSystem()
-    
     # Read the CSV file
     path = fr"data\ERP\{bucket_name}.csv"
     csv_data = pd.read_csv(path)
+    table = pa.Table.from_pandas(csv_data)
+    
+    # Cloud Storage file system
+    gcs = fs.GcsFileSystem()
     
     if partition_col:
-        csv_data['reference_date'] = pd.to_datetime(csv_data[partition_col]).dt.date
         uri = fr"analytics_journey_{bucket_name}/partitioned_data/"
         
-        table = pa.Table.from_pandas(csv_data)
-        pq.write_to_dataset(
-            table,
-            root_path=uri,
-            filesystem=gcs,
-            partition_cols=['reference_date']
-        )
+        if "state" in partition_col:
+            pq.write_to_dataset(
+                table,
+                root_path=uri,
+                filesystem=gcs,
+                partition_cols=[partition_col]
+            )
+        else:
+            csv_data['reference_date'] = pd.to_datetime(csv_data[partition_col]).dt.date
+            pq.write_to_dataset(
+                table,
+                root_path=uri,
+                filesystem=gcs,
+                partition_cols=['reference_date']
+            )
     else:
         uri = fr"analytics_journey_{bucket_name}/{bucket_name}.parquet"
         
-        table = pa.Table.from_pandas(csv_data)
         pq.write_table(
             table,
             uri,
@@ -69,6 +77,8 @@ for file in tqdm(files_dir, total=len(files_dir), desc="GCS upload progress"):
     bucket_name = file.split('.')[0]
     
     match bucket_name:
+        case 'geolocation':
+            partition_col = 'geolocation_state'
         case 'order_items':
             partition_col = 'shipping_limit_date'
         case 'order_reviews':
