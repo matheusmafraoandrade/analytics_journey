@@ -44,6 +44,4 @@ def load_from_storage(table_name: str) -> None:
 tables = list_buckets()
 
 for table_name in tables:
-    if table_name == 'customers':
-        continue
     load_from_storage(table_name)
