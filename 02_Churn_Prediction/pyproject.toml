@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "02-churn-prediction"
+version = "0.1.0"
+description = ""
+authors = ["matheusmafraoandrade <matheusmafrabh@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+google-cloud-bigquery = "^3.30.0"
+polars = "^1.23.0"
+python-dotenv = "^1.0.1"
+ipykernel = "^6.29.5"
+pyarrow = "^19.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
